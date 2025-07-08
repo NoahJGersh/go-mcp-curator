@@ -167,7 +167,7 @@ func getIssue(fragment string, book *Book) (issue *Issue, story uint8, flags fla
 // Helper function to get relevant appearance flags from a given string of text
 func getFlags(flagString string) flags {
 	flags := flags{}
-	for _, flag := range strings.Split(flagString, "-") {
+	for flag := range strings.SplitSeq(flagString, "-") {
 		switch flag {
 		case "FB":
 			flags.isFlashback = true
