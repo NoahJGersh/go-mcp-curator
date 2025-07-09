@@ -91,13 +91,15 @@ func getRange(rangeText string) Range {
 	return newRange
 }
 
+// Get the relevant book from an entry fragment
 func getBook(fragment string) *Book {
+	// Check if exists
 	if book, ok := Books[fragment]; ok {
 		return book
 	}
 
+	// Build new book from the existing values
 	var book Book
-
 	bookValues := BookRE.FindStringSubmatch(fragment)
 	if bookValues == nil {
 		book = Book{
